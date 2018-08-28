@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello to IMG Overlay WEB</title>
+
+    <style type="text/css">
+      img { width: 50%; }
+    </style>
+  </head>
+  <body>
+    <h1>Hello user!</h1>
+    <form method="post" enctype="multipart/form-data" action="/">
+      <div>
+        <label for="original_photo">Choose file to upload (Max size: 0.5MB)</label><br>
+        <input type="file" id="original_photo" name="original_photo" accept=".jpg, .jpeg, .png">
+      </div>
+      <div>
+        <button>Submit</button>
+      </div>
+    </form>
+    {% if filepath %}
+      <br>
+      <p>Here is your picture with an image overlay:</p>
+      <a href="{{ filepath }}" download>download!</a><br>
+      <img src="{{ filepath }}">
+    {% endif %}
+  </body>
+</html>
